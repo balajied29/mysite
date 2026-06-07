@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { posts } from "@/content/posts";
 import AnimatedPage from "@/components/AnimatedPage";
 import { AnimatedList, AnimatedItem } from "@/components/AnimatedList";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Writing on building, design, Northeast India, and things worth thinking about.",
+  alternates: { canonical: "/blog" },
+  openGraph: { title: "Blog — Balajied Sungoh", url: "/blog" },
+};
 
 export default function Blog() {
   return (

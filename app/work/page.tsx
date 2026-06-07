@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import AnimatedPage from "@/components/AnimatedPage";
 import { AnimatedList, AnimatedItem } from "@/components/AnimatedList";
+
+export const metadata: Metadata = {
+  title: "Work",
+  description: "Selected projects by Balajied Sungoh in technology, design, events, and infrastructure across Northeast India.",
+  alternates: { canonical: "/work" },
+  openGraph: { title: "Work — Balajied Sungoh", url: "/work" },
+};
 
 const projects = [
   {
@@ -22,6 +30,13 @@ const projects = [
     description: "Premium travel experiences across Northeast India.",
     tags: ["hospitality", "travel"],
     href: "https://www.lumtravels.in/",
+  },
+  {
+    name: "Little Token",
+    year: "2023—",
+    description: "Gifting and e-commerce platform.",
+    tags: ["e-commerce", "product"],
+    href: "https://littletoken.in/",
   },
   {
     name: "CLTR",

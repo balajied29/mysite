@@ -1,0 +1,25 @@
+export const siteConfig = {
+  url: "https://balajied.com",
+  name: "Balajied Sungoh",
+  title: "Balajied Sungoh — Founder & Creative, Shillong",
+  description:
+    "Founder and multifaceted creative based in Shillong, Meghalaya. Running OnlyBees — a full-stack technology and design company working across events, governance, hospitality, and travel in Northeast India.",
+  handle: "@itsbalajied",
+  keywords: [
+    "Balajied Sungoh",
+    "OnlyBees",
+    "Shillong",
+    "Meghalaya",
+    "Northeast India",
+    "founder",
+    "technology",
+    "design",
+    "events",
+    "CLTR",
+    "Lum Travels",
+    "PRIME DSPP",
+    "Little Token",
+    "creative director",
+    "Northeast India startup",
+  ],
+};

@@ -1,23 +1,66 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPost } from "@/content/posts";
+import { getPost, posts } from "@/content/posts";
+import { siteConfig } from "@/lib/config";
 import AnimatedPage from "@/components/AnimatedPage";
 import { AnimatedList, AnimatedItem } from "@/components/AnimatedList";
+
+export async function generateStaticParams() {
+  return posts.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPost(slug);
+  if (!post) return {};
+  return {
+    title: post.title,
+    description: post.sections[0]?.body ?? siteConfig.description,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      title: `${post.title} | Balajied Sungoh`,
+      description: post.sections[0]?.body ?? siteConfig.description,
+      url: `/blog/${slug}`,
+      type: "article",
+      publishedTime: post.date,
+      authors: [siteConfig.name],
+    },
+    twitter: {
+      card: "summary",
+      title: post.title,
+      description: post.sections[0]?.body ?? siteConfig.description,
+    },
+  };
+}
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) notFound();
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    author: { "@type": "Person", name: siteConfig.name, url: siteConfig.url },
+    datePublished: post.date,
+    url: `${siteConfig.url}/blog/${slug}`,
+  };
+
   return (
     <AnimatedPage>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <div className="container" style={{ paddingTop: "64px", paddingBottom: "96px" }}>
 
-        <div style={{ marginBottom: "64px" }}>
+        <header style={{ marginBottom: "64px" }}>
           <h1 style={{ fontSize: "17px", fontWeight: 700, lineHeight: "1.5", marginBottom: "12px" }}>
             {post.title}
           </h1>
-          <span style={{ color: "var(--muted)", fontSize: "12px" }}>{post.date}</span>
-        </div>
+          <time dateTime={post.date} style={{ color: "var(--muted)", fontSize: "12px" }}>{post.date}</time>
+        </header>
 
         <AnimatedList style={{ display: "flex", flexDirection: "column", gap: "56px" }}>
           {post.sections.map((section, i) => (

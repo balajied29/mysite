@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
+import { siteConfig } from "@/lib/config";
 
 const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-mono",
@@ -10,8 +11,53 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Balajied Sungoh",
-  description: "Founder building technology infrastructure for Northeast India.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.title,
+    template: `%s | Balajied Sungoh`,
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [{ url: "/pfp.png", width: 1200, height: 630, alt: "Balajied Sungoh" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    creator: siteConfig.handle,
+    images: ["/pfp.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+  alternates: { canonical: siteConfig.url },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Balajied Sungoh",
+  url: siteConfig.url,
+  image: `${siteConfig.url}/pfp.png`,
+  jobTitle: "Founder & Creative Director",
+  worksFor: { "@type": "Organization", name: "OnlyBees", url: "https://onlybees.in" },
+  address: { "@type": "PostalAddress", addressLocality: "Shillong", addressRegion: "Meghalaya", addressCountry: "IN" },
+  sameAs: [
+    "https://github.com/balajied29",
+    "https://x.com/itsbalajied",
+    "https://www.linkedin.com/in/balajied/",
+  ],
 };
 
 function Nav() {
@@ -52,6 +98,12 @@ function Footer() {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={ibmPlexMono.variable}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
         <Nav />
         <main style={{ flex: 1 }}>{children}</main>
