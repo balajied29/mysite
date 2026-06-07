@@ -8,6 +8,7 @@
   --divider: #1f1f1f;
   --max-width: 480px;
   --padding-x: 24px;
+  --hover: #c9a96e;
 }
 
 *,
@@ -35,11 +36,12 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-  transition: opacity 0.15s;
+  transition: color 0.15s, opacity 0.15s;
 }
 
 a:hover {
-  opacity: 0.6;
+  color: var(--hover);
+  opacity: 1;
 }
 
 button {
