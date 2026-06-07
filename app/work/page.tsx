@@ -30,7 +30,7 @@ const projects = [
   {
     name: "Cherry Blossom Dome Stage",
     year: "2025",
-    description: "Stage design, production, and lineup curation for the Shillong Cherry Blossom Festival.",
+    description: "Curation of electronic selectors (DJ) for the 2025 dome stage at the Shillong Cherry Blossom Festival.",
     tags: ["events", "creative direction"],
     href: "https://www.instagram.com/p/DQePpY5k0Wv/",
   },
