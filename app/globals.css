@@ -70,3 +70,120 @@ hr {
   color: var(--muted);
   margin-bottom: 24px;
 }
+
+/* Navigation */
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Content rows — title left, meta right */
+.content-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.content-row-title {
+  font-size: 14px;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.content-row-meta {
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+/* Version table in blog post */
+.version-table-header,
+.version-table-row {
+  display: grid;
+  grid-template-columns: 80px 70px 80px 1fr;
+  gap: 8px 12px;
+  margin-bottom: 10px;
+}
+
+.version-table-header {
+  margin-bottom: 8px;
+}
+
+/* Venture row — name left, url right */
+.venture-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.venture-row-url {
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Section header with label + action link */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 24px;
+}
+
+/* ── Mobile ─────────────────────────────────────────── */
+@media (max-width: 430px) {
+  :root {
+    --padding-x: 16px;
+  }
+
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  /* On very small screens, stack title above date */
+  .content-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .content-row-meta {
+    padding-top: 0;
+  }
+
+  /* Table: collapse to 2 columns (version+verdict, sharpe+hitrate) */
+  .version-table-header {
+    display: none;
+  }
+
+  .version-table-row {
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 12px;
+  }
+}

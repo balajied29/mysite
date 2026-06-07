@@ -34,17 +34,15 @@ const curation = [
 function VentureRow({ name, url, href, description }: { name: string; url: string | null; href: string | null; description: string }) {
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+      <div className="venture-row-top">
         <span style={{ fontWeight: 700 }}>{name}</span>
         {href ? (
-          <a href={href} target="_blank" rel="noopener noreferrer" style={{ color: "var(--muted)", fontSize: "12px" }}>
-            {url}
-          </a>
+          <a href={href} target="_blank" rel="noopener noreferrer" className="venture-row-url">{url}</a>
         ) : (
-          <span style={{ color: "var(--muted)", fontSize: "12px" }}>—</span>
+          <span className="venture-row-url">—</span>
         )}
       </div>
-      <p style={{ color: "var(--muted)", fontSize: "13px", marginTop: "4px" }}>{description}</p>
+      <p style={{ color: "var(--muted)", fontSize: "13px", marginTop: "4px", lineHeight: "1.6" }}>{description}</p>
     </div>
   );
 }
@@ -55,8 +53,8 @@ export default function Home() {
 
       {/* Hero */}
       <section style={{ marginBottom: "80px" }}>
-        <p style={{ fontSize: "16px", lineHeight: "1.7", whiteSpace: "pre-line" }}>
-          {`I'm a founder based in Shillong, Meghalaya. I run OnlyBees — a full-stack technology and design company working across events, governance, hospitality, and travel. Built from an unlikely city. Not bothered by that.`}
+        <p style={{ fontSize: "15px", lineHeight: "1.8" }}>
+          I&apos;m a founder based in Shillong, Meghalaya. I run OnlyBees — a full-stack technology and design company working across events, governance, hospitality, and travel.
         </p>
       </section>
 
@@ -90,21 +88,20 @@ export default function Home() {
       <hr />
 
       {/* Latest Writing */}
-      <section style={{ marginTop: "64px", marginBottom: "80px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "24px" }}>
+      <section style={{ marginTop: "64px", marginBottom: "16px" }}>
+        <div className="section-header">
           <p className="section-label" style={{ marginBottom: 0 }}>Latest Writing</p>
           <Link href="/blog" style={{ fontSize: "12px", color: "var(--muted)" }}>See all</Link>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           {posts.map((post) => (
-            <div key={post.slug} style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-              <Link href={`/blog/${post.slug}`} style={{ fontSize: "14px" }}>{post.title}</Link>
-              <span style={{ color: "var(--muted)", fontSize: "12px", whiteSpace: "nowrap", marginLeft: "16px" }}>{post.date}</span>
+            <div key={post.slug} className="content-row">
+              <Link href={`/blog/${post.slug}`} className="content-row-title">{post.title}</Link>
+              <span className="content-row-meta">{post.date}</span>
             </div>
           ))}
         </div>
       </section>
-
 
     </div>
   );

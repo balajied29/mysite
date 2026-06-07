@@ -8,7 +8,7 @@ export default function Blog() {
       <section style={{ marginBottom: "64px" }}>
         <h1 style={{ fontSize: "18px", fontWeight: 700, marginBottom: "16px" }}>Blog</h1>
         <p style={{ color: "var(--muted)", fontSize: "14px", lineHeight: "1.7" }}>
-          Writing on building, design, Northeast India,<br />
+          Writing on building, design, Northeast India,
           and things worth thinking about.
         </p>
       </section>
@@ -19,9 +19,9 @@ export default function Blog() {
         <p className="section-label">Archive</p>
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           {posts.map((post) => (
-            <div key={post.slug} style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-              <Link href={`/blog/${post.slug}`} style={{ fontSize: "14px" }}>{post.title}</Link>
-              <span style={{ color: "var(--muted)", fontSize: "12px", whiteSpace: "nowrap", marginLeft: "16px" }}>{post.date}</span>
+            <div key={post.slug} className="content-row">
+              <Link href={`/blog/${post.slug}`} className="content-row-title">{post.title}</Link>
+              <span className="content-row-meta">{post.date}</span>
             </div>
           ))}
         </div>
