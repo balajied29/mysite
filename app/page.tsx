@@ -7,6 +7,7 @@ const ventures = [
   { name: "OnlyBees", url: "onlybees.in", href: "https://onlybees.in/", description: "Full-stack tech, design, and events." },
   { name: "Lum Travels", url: "lumtravels.in", href: "https://www.lumtravels.in/", description: "Premium Northeast India travel." },
   { name: "PRIME DSPP", url: "primedspp.com", href: "https://primedspp.com/", description: "Government of Meghalaya digital services." },
+  { name: "Little Token", url: "littletoken.in", href: "https://littletoken.in/", description: "Gifting and e-commerce platform." },
 ];
 
 const creativeDirection = [
