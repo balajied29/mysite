@@ -35,12 +35,12 @@ function VentureRow({ name, url, href, description }: { name: string; url: strin
   return (
     <div>
       <div className="venture-row-top">
-        <span style={{ fontWeight: 700 }}>{name}</span>
         {href ? (
-          <a href={href} target="_blank" rel="noopener noreferrer" className="venture-row-url">{url}</a>
+          <a href={href} target="_blank" rel="noopener noreferrer" style={{ fontWeight: 700 }}>{name}</a>
         ) : (
-          <span className="venture-row-url">—</span>
+          <span style={{ fontWeight: 700 }}>{name}</span>
         )}
+        <span className="venture-row-url">{url ?? "—"}</span>
       </div>
       <p style={{ color: "var(--muted)", fontSize: "13px", marginTop: "4px", lineHeight: "1.6" }}>{description}</p>
     </div>
