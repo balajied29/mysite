@@ -1,3 +1,6 @@
+import AnimatedPage from "@/components/AnimatedPage";
+import { AnimatedList, AnimatedItem } from "@/components/AnimatedList";
+
 const projects = [
   {
     name: "OnlyBees",
@@ -45,46 +48,48 @@ const projects = [
 
 export default function Work() {
   return (
-    <div className="container" style={{ paddingTop: "64px", paddingBottom: "96px" }}>
+    <AnimatedPage>
+      <div className="container" style={{ paddingTop: "64px", paddingBottom: "96px" }}>
 
-      <section style={{ marginBottom: "64px" }}>
-        <h1 style={{ fontSize: "18px", fontWeight: 700, marginBottom: "16px" }}>Work</h1>
-        <p style={{ color: "var(--muted)", fontSize: "14px", lineHeight: "1.7" }}>
-          Selected projects in technology, design,<br />
-          and infrastructure.
-        </p>
-      </section>
+        <section style={{ marginBottom: "64px" }}>
+          <h1 style={{ fontSize: "18px", fontWeight: 700, marginBottom: "16px" }}>Work</h1>
+          <p style={{ color: "var(--muted)", fontSize: "14px", lineHeight: "1.7" }}>
+            Selected projects in technology, design,<br />
+            and infrastructure.
+          </p>
+        </section>
 
-      <hr />
+        <hr />
 
-      <section style={{ marginTop: "40px" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-          {projects.map((p) => (
-            <div key={p.name}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "6px" }}>
-                <a
-                  href={p.href}
-                  target={p.href.startsWith("http") ? "_blank" : undefined}
-                  rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  style={{ fontWeight: 700, fontSize: "14px" }}
-                >
-                  {p.name}
-                </a>
-                <span style={{ color: "var(--muted)", fontSize: "12px" }}>{p.year}</span>
-              </div>
-              <p style={{ color: "var(--muted)", fontSize: "13px", marginBottom: "10px", lineHeight: "1.6" }}>{p.description}</p>
-              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                {p.tags.map((tag) => (
-                  <span key={tag} style={{ fontSize: "11px", color: "var(--muted)", border: "1px solid var(--divider)", padding: "2px 8px" }}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+        <section style={{ marginTop: "40px" }}>
+          <AnimatedList style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+            {projects.map((p) => (
+              <AnimatedItem key={p.name}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "6px" }}>
+                  <a
+                    href={p.href}
+                    target={p.href.startsWith("http") ? "_blank" : undefined}
+                    rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    style={{ fontWeight: 700, fontSize: "14px" }}
+                  >
+                    {p.name}
+                  </a>
+                  <span style={{ color: "var(--muted)", fontSize: "12px" }}>{p.year}</span>
+                </div>
+                <p style={{ color: "var(--muted)", fontSize: "13px", marginBottom: "10px", lineHeight: "1.6" }}>{p.description}</p>
+                <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                  {p.tags.map((tag) => (
+                    <span key={tag} style={{ fontSize: "11px", color: "var(--muted)", border: "1px solid var(--divider)", padding: "2px 8px" }}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </AnimatedItem>
+            ))}
+          </AnimatedList>
+        </section>
 
-    </div>
+      </div>
+    </AnimatedPage>
   );
 }
