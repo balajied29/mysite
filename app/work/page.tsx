@@ -1,0 +1,90 @@
+const projects = [
+  {
+    name: "OnlyBees",
+    year: "2021—",
+    description: "Full-stack technology and design company. Events, governance, hospitality, travel.",
+    tags: ["technology", "design", "events"],
+    href: "https://onlybees.in/",
+  },
+  {
+    name: "PRIME DSPP",
+    year: "2023—",
+    description: "Digital services platform for the Government of Meghalaya.",
+    tags: ["gov-tech", "product"],
+    href: "https://primedspp.com/",
+  },
+  {
+    name: "Lum Travels",
+    year: "2023—",
+    description: "Premium travel experiences across Northeast India.",
+    tags: ["hospitality", "travel"],
+    href: "https://www.lumtravels.in/",
+  },
+  {
+    name: "CLTR",
+    year: "2022—",
+    description: "Culture and live entertainment brand based in Shillong.",
+    tags: ["events", "curation"],
+    href: "https://www.instagram.com/cltr.events/",
+  },
+  {
+    name: "Cherry Blossom Dome Stage",
+    year: "2025",
+    description: "Stage design, production, and lineup curation for the Shillong Cherry Blossom Festival.",
+    tags: ["events", "creative direction"],
+    href: "https://www.instagram.com/p/DQePpY5k0Wv/",
+  },
+  {
+    name: "Teer Quant",
+    year: "2024—",
+    description: "Quantitative model for Meghalaya's archery lottery. 18 months, five rebuilds, one breakthrough.",
+    tags: ["research", "quant"],
+    href: "/blog/teer-project",
+  },
+];
+
+export default function Work() {
+  return (
+    <div className="container" style={{ paddingTop: "64px", paddingBottom: "96px" }}>
+
+      <section style={{ marginBottom: "64px" }}>
+        <h1 style={{ fontSize: "18px", fontWeight: 700, marginBottom: "16px" }}>Work</h1>
+        <p style={{ color: "var(--muted)", fontSize: "14px", lineHeight: "1.7" }}>
+          Selected projects in technology, design,<br />
+          and infrastructure.
+        </p>
+      </section>
+
+      <hr />
+
+      <section style={{ marginTop: "40px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+          {projects.map((p) => (
+            <div key={p.name}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "6px" }}>
+                <a
+                  href={p.href}
+                  target={p.href.startsWith("http") ? "_blank" : undefined}
+                  rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  style={{ fontWeight: 700, fontSize: "14px" }}
+                >
+                  {p.name}
+                </a>
+                <span style={{ color: "var(--muted)", fontSize: "12px" }}>{p.year}</span>
+              </div>
+              <p style={{ color: "var(--muted)", fontSize: "13px", marginBottom: "10px", lineHeight: "1.6" }}>{p.description}</p>
+              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                {p.tags.map((tag) => (
+                  <span key={tag} style={{ fontSize: "11px", color: "var(--muted)", border: "1px solid var(--divider)", padding: "2px 8px" }}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+    </div>
+  );
+}

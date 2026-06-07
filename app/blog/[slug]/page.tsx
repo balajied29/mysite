@@ -1,0 +1,101 @@
+import { notFound } from "next/navigation";
+import { getPost } from "@/content/posts";
+
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getPost(slug);
+  if (!post) notFound();
+
+  return (
+    <div className="container" style={{ paddingTop: "64px", paddingBottom: "96px" }}>
+
+      {/* Header */}
+      <div style={{ marginBottom: "64px" }}>
+        <h1 style={{ fontSize: "18px", fontWeight: 700, lineHeight: "1.4", marginBottom: "12px" }}>
+          {post.title}
+        </h1>
+        <span style={{ color: "var(--muted)", fontSize: "12px" }}>{post.date}</span>
+      </div>
+
+      {/* Sections */}
+      <div style={{ display: "flex", flexDirection: "column", gap: "56px" }}>
+        {post.sections.map((section, i) => (
+          <section key={i}>
+            {section.heading && (
+              <h2 style={{ fontSize: "15px", fontWeight: 700, marginBottom: "16px", lineHeight: "1.4" }}>
+                {section.heading}
+              </h2>
+            )}
+
+            {section.body && (
+              <p style={{ color: "var(--accent)", fontSize: "14px", lineHeight: "1.8", whiteSpace: "pre-line", marginBottom: section.stat || section.table || section.list ? "24px" : 0 }}>
+                {section.body}
+              </p>
+            )}
+
+            {section.stat && (
+              <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: section.note ? "20px" : 0 }}>
+                {section.stat.map((s, j) => (
+                  <div key={j} style={{ display: "flex", alignItems: "baseline", gap: "16px" }}>
+                    <span style={{ fontWeight: 700, fontSize: "16px", minWidth: "60px" }}>{s.value}</span>
+                    <div>
+                      <span style={{ fontSize: "13px" }}>{s.label}</span>
+                      {s.note && <span style={{ color: "var(--muted)", fontSize: "12px", marginLeft: "8px" }}>({s.note})</span>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {section.table && (
+              <div style={{ marginBottom: section.note ? "20px" : 0 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "8px 16px", marginBottom: "8px" }}>
+                  {section.table.cols.map((col) => (
+                    <span key={col} style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--muted)" }}>{col}</span>
+                  ))}
+                </div>
+                <hr style={{ marginBottom: "12px" }} />
+                {section.table.rows.map((row, ri) => (
+                  <div key={ri} style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "8px 16px", marginBottom: "10px" }}>
+                    {row.map((cell, ci) => {
+                      const isObj = typeof cell === "object";
+                      return (
+                        <span key={ci} style={{
+                          fontSize: "13px",
+                          fontWeight: isObj && cell.highlight ? 700 : 400,
+                          color: isObj && cell.highlight ? "var(--text)" : "var(--accent)",
+                        }}>
+                          {isObj ? cell.text : cell}
+                        </span>
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {section.list && (
+              <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+                {section.list.map((item) => (
+                  <div key={item.num} style={{ display: "flex", gap: "20px" }}>
+                    <span style={{ color: "var(--muted)", fontSize: "12px", minWidth: "20px", paddingTop: "2px" }}>{item.num}</span>
+                    <div>
+                      <p style={{ fontWeight: 700, fontSize: "14px", marginBottom: "4px" }}>{item.heading}</p>
+                      <p style={{ color: "var(--muted)", fontSize: "13px" }}>{item.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {section.note && (
+              <p style={{ color: "var(--muted)", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: "16px", whiteSpace: "pre-line" }}>
+                {section.note}
+              </p>
+            )}
+          </section>
+        ))}
+      </div>
+    </div>
+  );
+}
