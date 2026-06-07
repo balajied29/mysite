@@ -53,12 +53,18 @@ function VentureRow({ name, url, href, description }: { name: string; url: strin
 export default function Home() {
   return (
     <AnimatedPage>
+      {/* Photo below nav */}
+      <div className="container" style={{ paddingTop: "32px" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/pfp.png" alt="Balajied Sungoh" className="pfp" />
+      </div>
+
       <div className="container" style={{ paddingTop: "64px", paddingBottom: "64px" }}>
 
         {/* Hero */}
         <section style={{ marginBottom: "80px" }}>
           <p style={{ fontSize: "15px", lineHeight: "1.8" }}>
-            I&apos;m a founder based in Shillong, Meghalaya. I run OnlyBees — a full-stack technology and design company working across events, governance, hospitality, and travel.
+            I&apos;m a founder and multifaceted creative based in Shillong, Meghalaya. I run OnlyBees — a full-stack technology and design company working across events, governance, hospitality, and travel.
           </p>
         </section>
 

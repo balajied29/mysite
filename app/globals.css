@@ -65,6 +65,19 @@ hr {
   color: var(--muted);
 }
 
+.pfp {
+  width: 160px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+.pfp:hover {
+  filter: grayscale(0%);
+}
+
 .section-label {
   font-size: 11px;
   text-transform: uppercase;
