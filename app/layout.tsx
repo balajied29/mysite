@@ -41,7 +41,7 @@ function Footer() {
           <a href="https://github.com/balajied29" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://x.com/itsbalajied" target="_blank" rel="noopener noreferrer">X</a>
           <a href="#">LinkedIn</a>
-          <a href="#">Contact</a>
+          <a href="mailto:business@onlybees.in">Contact</a>
         </div>
         <span style={{ color: "var(--muted)" }}>© 2026</span>
       </div>
