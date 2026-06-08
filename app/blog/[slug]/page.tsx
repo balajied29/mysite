@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPost, posts } from "@/content/posts";
 import { siteConfig } from "@/lib/config";
@@ -54,6 +55,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       <div className="container" style={{ paddingTop: "64px", paddingBottom: "96px" }}>
+
+        <Link href="/blog" style={{ fontSize: "12px", color: "var(--muted)", display: "inline-block", marginBottom: "48px" }}>
+          ← Blog
+        </Link>
 
         <header style={{ marginBottom: "64px" }}>
           <h1 style={{ fontSize: "17px", fontWeight: 700, lineHeight: "1.5", marginBottom: "12px" }}>

@@ -9,6 +9,8 @@
   --max-width: 480px;
   --padding-x: 24px;
   --hover: #c9a96e;
+  --mx: 50%;
+  --my: 50%;
 }
 
 *,
@@ -27,11 +29,14 @@ html {
 
 body {
   background: var(--bg);
+  background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 28px 28px;
   color: var(--text);
   font-family: var(--font-mono), "IBM Plex Mono", monospace;
   line-height: 1.6;
   min-height: 100vh;
 }
+
 
 a {
   color: inherit;
@@ -65,13 +70,14 @@ hr {
   color: var(--muted);
 }
 
+/* Photo */
 .pfp {
-  width: 160px;
+  width: 200px;
   height: auto;
   display: block;
   margin: 0 auto;
   filter: grayscale(100%);
-  transition: filter 0.4s ease;
+  transition: filter 0.5s ease;
 }
 
 .pfp:hover {
@@ -101,6 +107,32 @@ hr {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+}
+
+/* Marquee ticker */
+.marquee-wrap {
+  overflow: hidden;
+  border-bottom: 1px solid var(--divider);
+  padding: 10px 0;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 30s linear infinite;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* Content rows — title left, meta right */
@@ -180,7 +212,6 @@ hr {
     gap: 20px;
   }
 
-  /* On very small screens, stack title above date */
   .content-row {
     flex-direction: column;
     gap: 4px;
@@ -190,7 +221,6 @@ hr {
     padding-top: 0;
   }
 
-  /* Table: collapse to 2 columns (version+verdict, sharpe+hitrate) */
   .version-table-header {
     display: none;
   }

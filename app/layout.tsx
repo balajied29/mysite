@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import Link from "next/link";
+import NavLinks from "@/components/NavLinks";
+import MouseGlow from "@/components/MouseGlow";
 import "./globals.css";
 import { siteConfig } from "@/lib/config";
 
@@ -68,11 +70,7 @@ function Nav() {
           <Link href="/" style={{ fontWeight: 700, fontSize: "14px" }}>
             Balajied Sungoh
           </Link>
-          <div className="nav-links">
-            <Link href="/">Home</Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/work">Work</Link>
-          </div>
+          <NavLinks />
         </div>
       </div>
     </nav>
@@ -105,6 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        <MouseGlow />
         <Nav />
         <main style={{ flex: 1 }}>{children}</main>
         <Footer />
