@@ -5,7 +5,7 @@ import { AnimatedList, AnimatedItem } from "@/components/AnimatedList";
 import ScrambleText from "@/components/ScrambleText";
 
 const ventures = [
-  { name: "OnlyBees", url: "onlybees.in", href: "https://onlybees.in/", description: "Technology, design, and growth studio. Built for the Northeast." },
+  { name: "OnlyBees", url: "onlybees.in", href: "https://onlybees.in/", description: "Technology, design, and growth. Built for the Northeast." },
   { name: "Lum Travels", url: "lumtravels.in", href: "https://www.lumtravels.in/", description: "Premium travel through Northeast India." },
   { name: "PRIME DSPP", url: "primedspp.com", href: "https://primedspp.com/", description: "Digital services platform, Government of Meghalaya." },
   { name: "Little Token", url: "littletoken.in", href: "https://littletoken.in/", description: "Gifting and e-commerce, built in Shillong." },

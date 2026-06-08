@@ -13,7 +13,7 @@ const projects = [
   {
     name: "OnlyBees",
     year: "2021—",
-    description: "Full-stack technology, design, and growth company. Events, governance, hospitality, travel.",
+    description: "Full-stack technology, design, and growth. Events, governance, hospitality, travel.",
     tags: ["technology", "design", "growth", "performance marketing"],
     href: "https://onlybees.in/",
   },
