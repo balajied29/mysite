@@ -5,7 +5,7 @@ import { AnimatedList, AnimatedItem } from "@/components/AnimatedList";
 import ScrambleText from "@/components/ScrambleText";
 
 const ventures = [
-  { name: "OnlyBees", url: "onlybees.in", href: "https://onlybees.in/", description: "Technology and design studio. Built for the Northeast." },
+  { name: "OnlyBees", url: "onlybees.in", href: "https://onlybees.in/", description: "Technology, design, and growth studio. Built for the Northeast." },
   { name: "Lum Travels", url: "lumtravels.in", href: "https://www.lumtravels.in/", description: "Premium travel through Northeast India." },
   { name: "PRIME DSPP", url: "primedspp.com", href: "https://primedspp.com/", description: "Digital services platform, Government of Meghalaya." },
   { name: "Little Token", url: "littletoken.in", href: "https://littletoken.in/", description: "Gifting and e-commerce, built in Shillong." },
@@ -75,7 +75,7 @@ export default function Home() {
             <ScrambleText text="Founder / CSO at OnlyBees." />
           </h1>
           <p style={{ fontSize: "14px", lineHeight: "1.8", color: "var(--accent)", maxWidth: "420px" }}>
-            Running OnlyBees — technology and design across events, governance, hospitality, and travel in Northeast India.
+            Running OnlyBees — technology, design, and growth across events, governance, hospitality, and travel in Northeast India.
           </p>
         </section>
 
