@@ -5,10 +5,10 @@ import AnimatedPage from "@/components/AnimatedPage";
 import { AnimatedList, AnimatedItem } from "@/components/AnimatedList";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Writing on building, design, Northeast India, and things worth thinking about.",
+  title: "Experiments",
+  description: "Side projects, models, and things built for curiosity.",
   alternates: { canonical: "/blog" },
-  openGraph: { title: "Blog — Balajied Sungoh", url: "/blog" },
+  openGraph: { title: "Experiments — Balajied Sungoh", url: "/blog" },
 };
 
 export default function Blog() {
@@ -17,10 +17,9 @@ export default function Blog() {
       <div className="container" style={{ paddingTop: "64px", paddingBottom: "96px" }}>
 
         <section style={{ marginBottom: "64px" }}>
-          <h1 style={{ fontSize: "18px", fontWeight: 700, marginBottom: "16px" }}>Blog</h1>
+          <h1 style={{ fontSize: "18px", fontWeight: 700, marginBottom: "16px" }}>Experiments</h1>
           <p style={{ color: "var(--muted)", fontSize: "14px", lineHeight: "1.7" }}>
-            Writing on building, design, Northeast India,
-            and things worth thinking about.
+            Side projects, models, and things built for curiosity.
           </p>
         </section>
 

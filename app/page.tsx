@@ -124,7 +124,7 @@ export default function Home() {
         {/* Latest Writing */}
         <section style={{ marginTop: "48px" }}>
           <div className="section-header">
-            <p className="section-label" style={{ marginBottom: 0 }}>Writing</p>
+            <p className="section-label" style={{ marginBottom: 0 }}>Experiments</p>
             <Link href="/blog" style={{ fontSize: "12px", color: "var(--muted)" }}>See all</Link>
           </div>
           <AnimatedList style={{ display: "flex", flexDirection: "column", gap: "16px" }}>

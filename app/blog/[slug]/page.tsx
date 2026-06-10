@@ -57,7 +57,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       <div className="container" style={{ paddingTop: "64px", paddingBottom: "96px" }}>
 
         <Link href="/blog" style={{ fontSize: "12px", color: "var(--muted)", display: "inline-block", marginBottom: "48px" }}>
-          ← Blog
+          ← Experiments
         </Link>
 
         <header style={{ marginBottom: "64px" }}>
@@ -78,9 +78,42 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 )}
 
                 {section.body && (
-                  <p style={{ color: "var(--accent)", fontSize: "14px", lineHeight: "1.8", whiteSpace: "pre-line", marginBottom: section.stat || section.table || section.list ? "24px" : 0 }}>
+                  <p style={{ color: "var(--accent)", fontSize: "14px", lineHeight: "1.8", whiteSpace: "pre-line", marginBottom: section.code || section.bullets || section.stat || section.table || section.list ? "20px" : 0 }}>
                     {section.body}
                   </p>
+                )}
+
+                {section.code && (
+                  <pre style={{ background: "var(--divider)", border: "1px solid #2a2a2a", borderRadius: "4px", padding: "16px 20px", fontSize: "12px", lineHeight: "1.7", color: "var(--accent)", overflowX: "auto", marginBottom: section.bullets || section.stat || section.table || section.list ? "20px" : 0, whiteSpace: "pre" }}>
+                    <code>{section.code}</code>
+                  </pre>
+                )}
+
+                {section.image && (
+                  <figure style={{ margin: "0 0 20px", padding: 0 }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={section.image.src}
+                      alt={section.image.alt}
+                      style={{ width: "100%", height: "auto", display: "block", borderRadius: "4px", border: "1px solid var(--divider)" }}
+                    />
+                    {section.image.caption && (
+                      <figcaption style={{ fontSize: "11px", color: "var(--muted)", marginTop: "10px", lineHeight: "1.6", letterSpacing: "0.02em" }}>
+                        {section.image.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                )}
+
+                {section.bullets && (
+                  <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "10px", marginBottom: section.stat || section.table || section.list ? "20px" : 0 }}>
+                    {section.bullets.map((b, i) => (
+                      <li key={i} style={{ fontSize: "14px", color: "var(--accent)", lineHeight: "1.7", paddingLeft: "16px", position: "relative" }}>
+                        <span style={{ position: "absolute", left: 0, color: "var(--muted)" }}>—</span>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
                 )}
 
                 {section.stat && (
