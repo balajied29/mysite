@@ -68,9 +68,6 @@ export default function Home() {
 
         {/* Hero */}
         <section style={{ marginBottom: "64px" }}>
-          <p style={{ fontSize: "13px", color: "var(--muted)", marginBottom: "12px", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-            Shillong, Meghalaya
-          </p>
           <h1 style={{ fontSize: "20px", fontWeight: 700, lineHeight: "1.4", marginBottom: "20px" }}>
             <ScrambleText text="Founder / CSO at OnlyBees." />
           </h1>
